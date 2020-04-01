@@ -60,9 +60,9 @@ exports._format = function(m) {
 };
 
 exports.asMilliseconds = function(d) {
-  return m.asMilliseconds();
+  return d.asMilliseconds();
 };
 
 exports.fromMilliseconds = function(x) {
-  return m.duration(x);
+  return moment.duration(x);
 };
