@@ -1,0 +1,13 @@
+{
+  "name": "moment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "David <t3tris.d3vil@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "coffee -cb src/ && spago build"
+  },
+  "dependencies": {
+    "moment": "^2.24.0"
+  }
+}
