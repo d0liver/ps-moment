@@ -58,3 +58,11 @@ exports._seconds = function(d) {
 exports._format = function(m) {
   return m.format();
 };
+
+exports.asMilliseconds = function(d) {
+  return m.asMilliseconds();
+};
+
+exports.fromMilliseconds = function(x) {
+  return m.duration(x);
+};

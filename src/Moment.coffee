@@ -14,3 +14,6 @@ exports._now                 =                -> moment()
 exports._diff                = (m1, m2)       -> moment.duration(m1.diff(m2))
 exports._seconds             = (d)            -> d.seconds()
 exports._format              = (m)            -> m.format()
+
+exports.asMilliseconds = (d) -> m.asMilliseconds()
+exports.fromMilliseconds = (x) -> m.duration(x)

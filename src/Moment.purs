@@ -9,6 +9,8 @@ module Moment
   , subtract
   , diff
   , duration
+  , asMilliseconds
+  , fromMilliseconds
   , isBefore
   , isAfter
   , isSame
@@ -22,17 +24,27 @@ module Moment
   ) where
 
 import Prelude
+
+import Data.Array ((..))
 import Data.Foldable (foldl)
 import Data.Function.Uncurried (Fn2, Fn3, Fn1, runFn1, runFn2, runFn3)
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.JSDate (JSDate)
 import Effect (Effect)
-import Data.Array ((..))
+import Foreign (readNumber)
+import Foreign.Generic.Class (class Decode, class Encode, encode)
+import Prelude.Unicode ((∘))
 
 foreign import data Moment :: Type
 
 foreign import data Duration :: Type
+
+instance encodeDuration :: Encode Duration where
+  encode = encode ∘ asMilliseconds
+
+instance decodeDuration :: Decode Duration where
+  decode = map fromMilliseconds ∘ readNumber
 
 data Increment
   = Months
@@ -78,6 +90,9 @@ foreign import _seconds :: Fn1 Duration Int
 foreign import _now :: Effect Moment
 
 foreign import _format :: Fn1 Moment String
+
+foreign import asMilliseconds :: Duration -> Number
+foreign import fromMilliseconds :: Number -> Duration
 
 infixl 6 addDurationToMoment as :~+
 
