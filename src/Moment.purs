@@ -75,6 +75,8 @@ foreign import _duration :: Fn2 Int String Duration
 
 foreign import _fromUTC :: Fn1 String Moment
 
+foreign import _toUTC :: Fn1 Moment String
+
 foreign import _fromDate :: Fn1 JSDate Moment
 
 foreign import _isAfter :: Fn2 Moment Moment Boolean
@@ -120,6 +122,9 @@ addDurations = runFn2 _addDurations
 
 fromUTC :: String -> Moment
 fromUTC = runFn1 _fromUTC
+
+toUTC :: Moment -> String
+toUTC = runFn1 _toUTC
 
 fromDate :: JSDate -> Moment
 fromDate = runFn1 _fromDate

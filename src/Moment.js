@@ -27,6 +27,10 @@ exports._fromUTC = function(utc) {
   return moment.utc(utc);
 };
 
+exports._toUTC = function(m) {
+  return m.utc().format();
+};
+
 exports._fromDate = function(date) {
   return moment.utc(date);
 };
