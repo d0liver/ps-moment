@@ -4,6 +4,7 @@ module Moment
   , Increment(..)
   , now
   , fromUTC
+  , toUTC
   , fromDate
   , add
   , subtract
